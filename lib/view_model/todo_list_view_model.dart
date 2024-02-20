@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter/model/task.dart';
 
-class MyViewModel extends ChangeNotifier {
+class TodoListViewModel extends ChangeNotifier {
   final List<Task> _tasks = [];
   List<Task> get tasks => List.from(_tasks);
 

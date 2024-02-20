@@ -13,7 +13,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const uuid = Uuid();
-    return Consumer<MyViewModel>(
+    return Consumer<TodoListViewModel>(
       builder: (context, myViewModel, child) => Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
