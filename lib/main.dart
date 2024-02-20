@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:todo_list_firebase/view_model/user_view_model.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'package:my_first_flutter/view_model/todo_list_view_model.dart';
+import 'package:todo_list_firebase/view_model/tasks_view_model.dart';
 import 'package:provider/provider.dart';
 import 'view/todo_list_view.dart';
 
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => TodoListViewModel()),
+        ChangeNotifierProvider(create: (_) => UserViewModel()),
+        ChangeNotifierProxyProvider<UserViewModel, TasksViewModel>(
+          create: (context) => TasksViewModel(context.read()),
+          update: (context, userVM, previou) => TasksViewModel(userVM),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
