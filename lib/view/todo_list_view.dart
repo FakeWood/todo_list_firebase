@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_list_firebase/view_model/tasks_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list_firebase/view_model/user_view_model.dart';
+import 'package:gap/gap.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key, required this.title});
@@ -59,6 +60,7 @@ class MyHomePage extends StatelessWidget {
                           const InputDecoration(hintText: "Enter your task"),
                     ),
                   ),
+                  const Gap(10),
                   ElevatedButton(
                       onPressed: () => context.read<UserViewModel>().signOut(),
                       child: const Text("Sign Out"))
